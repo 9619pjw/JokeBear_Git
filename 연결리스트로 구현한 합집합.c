@@ -69,22 +69,19 @@ int findSet(char element)	    // 해당 원소를 지니는 집합을 찾는 연
 	return -1;
 }
 
-void unionSet(char element, char element2)		
-// 원소 element1을 지닌 집합과 원소 element2을 지닌 집합의 합집합 연산
+void unionSet(char element, char element2)	// 원소 element1을 지닌 집합과 원소 element2을 지닌 집합의 합집합 연산
 {
 	int set1 = findSet(element);
 	int set2 = findSet(element2);
-	if (Set[set1].totalElementNum < Set[set2].totalElementNum) 
-				// set2이 set1보다 큰 경우 set1을 set2 뒤에 붙임
+	if (Set[set1].totalElementNum < Set[set2].totalElementNum) // set2이 set1보다 큰 경우 set1을 set2 뒤에 붙임
 	{
-		Set[set2].totalElementNum += Set[set1].totalElementNum;		
-				// set2의 총 원소 개수에 set1의 총 원소 개수 더함
-		Set[set2].tail->next = Set[set1].tail->head;								// set2의 next가 가리키는 위치에 set1의 head를 연결
-		node* start = Set[set1].tail->head;											// 시작점을 set1의 tail값으로 시작함
+		Set[set2].totalElementNum += Set[set1].totalElementNum;		// set2의 총 원소 개수에 set1의 총 원소 개수 더함
+		Set[set2].tail->next = Set[set1].tail->head;		// set2의 next가 가리키는 위치에 set1의 head를 연결
+		node* start = Set[set1].tail->head;			// 시작점을 set1의 tail값으로 시작함
 		while (1)
 		{
-			start->head = Set[set2].tail->head;						// 시작점이 가리키는 곳은 set2의 tail이 가리키는 head
-			if (start == Set[set1].tail)								// 시작점이 set1의 tail과 같다면 반복문 탈출
+			start->head = Set[set2].tail->head;		// 시작점이 가리키는 곳은 set2의 tail이 가리키는 head
+			if (start == Set[set1].tail)			// 시작점이 set1의 tail과 같다면 반복문 탈출
 				break;
 			start = start->next;	// 시작점을 옮김
 		}
@@ -94,14 +91,13 @@ void unionSet(char element, char element2)
 	}
 	else	// set1이 set2보다 큰 경우 set2를 set1 뒤에 붙임
 	{	
-		Set[set1].totalElementNum += Set[set2].totalElementNum; 
-				// set1의 총 원소 개수에 set2의 총 원소 개수를 더함
-		Set[set1].tail->next = Set[set2].tail->head;								// set1의  next가 가리키는 위치에 set2의 head를 연결
-		node* start = Set[set2].tail->head;									// 시작점을 set2의 tail값으로 시작함
+		Set[set1].totalElementNum += Set[set2].totalElementNum; // set1의 총 원소 개수에 set2의 총 원소 개수를 더함
+		Set[set1].tail->next = Set[set2].tail->head;		// set1의  next가 가리키는 위치에 set2의 head를 연결
+		node* start = Set[set2].tail->head;			// 시작점을 set2의 tail값으로 시작함
 		while (1)
 		{
-			start->head = Set[set1].tail->head;							// 시작점이 가리키는 곳은 set1의 tail이 가리키는 head
-			if (start == Set[set2].tail)									// 시작점이 set2의 tail과 같다면 반복문 탈출
+			start->head = Set[set1].tail->head;		// 시작점이 가리키는 곳은 set1의 tail이 가리키는 head
+			if (start == Set[set2].tail)			// 시작점이 set2의 tail과 같다면 반복문 탈출
 				break;
 			start = start->next;	// 시작점을 옮김
 		}
