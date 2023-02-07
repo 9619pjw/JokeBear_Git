@@ -5,7 +5,7 @@ class Main {
     static final int MAX_VERTEX = 30;
  
     static int vertex; // 정점
-    static int map[][] = new int[MAX_VERTEX][MAX_VERTEX];
+    static int map[][] = new int[MAX_VERTEX][MAX_VERTEX]; // 간선
     static int visit[] = new int[MAX_VERTEX]; // 방문 노드
  
     static void depthFirstSearch(int v)
