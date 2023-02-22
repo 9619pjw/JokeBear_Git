@@ -1,3 +1,6 @@
+/*
+* 연결리스트로 구현한 
+*/
 #include <stdio.h>
 struct node			
 {
