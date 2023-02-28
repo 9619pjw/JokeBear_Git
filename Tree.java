@@ -50,19 +50,19 @@ class Tree {
         int found = -1;
         for (int i = 0; i < MAX_CHILD_NUM; i++)
         {
-            if (treenode[parent].child[i] == -1)
+            if (treenode[parent].child[i] == -1) // 해당 노드의 자식노드가 비어있으면
             {
-                found = i;
+                found = i; // 넣을 자리를 found에 대입
                 break;
             }
         }
-        if (found == -1) return;
+        if (found == -1) return; // 넣을 자리 못찾았으면 -1 반환
          
-        treenode[parent].child[found] = child;
-        treenode[child].parent = parent;
+        treenode[parent].child[found] = child; // parent의 자식 노드 자리에 child 넣음
+        treenode[child].parent = parent; // child의 부모 노드 자리에 parent 넣
     }
  
-    public int getRoot() 
+    public int getRoot()  // 전위 순행 출발점 구하기
     {
         for (int i = 1; i < nodeNum; i++) 
         {
@@ -81,9 +81,9 @@ class Tree {
         for (int i = 0; i < MAX_CHILD_NUM; i++) 
         {
             int child = treenode[root].child[i];
-            if (child != -1)
+            if (child != -1) // 자식 노드가 존재하면
             {
-                preOrder(child);
+                preOrder(child); // 해당 자식 노드로 전위순행 함계속함
             }
         }
     }
@@ -106,8 +106,8 @@ class Main{
             for (int i = 0; i < edge; i++) // 간선의 수만큼 반복
             {
                 int parent = sc.nextInt(); // 부모 노드
-                int child = sc.nextInt(); // 자식노드
-                tree.addChild(parent, child); //
+                int child = sc.nextInt(); // 자식 노드
+                tree.addChild(parent, child); // 부모 노드에 자식 노드 추가함
             }
             int root = tree.getRoot(); // 루트
             System.out.printf("#%d ", test_case);
