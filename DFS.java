@@ -33,7 +33,7 @@ DFS 너비 우선 탐색
 ===================================================
 #1 1 2 4 8 5 6 3 7 // 방문한 정점 순서
 
-출처 : SW Expert Reference Code_ FS_Searching
+출처 : SW Expert Reference Code_DFS_Searching
 */
 
 
@@ -48,13 +48,10 @@ class Main {
     static int map[][] = new int[MAX_VERTEX][MAX_VERTEX]; // 간선
     static int visit[] = new int[MAX_VERTEX]; // 방문 노드
  
-    static void depthFirstSearch(int v)
-    {
+    static void depthFirstSearch(int v){
         visit[v] = 1; // v번째 노드 방문. 1로 바꾸어 방문했음을 표기함
-        for (int i = 1; i <= vertex; i++)
-        {
-            if (map[v][i] == 1 && visit[i] == 0) // 간선이 존재 && 방문한적 없는 노드면 출력
-            {
+        for (int i = 1; i <= vertex; i++){
+            if (map[v][i] == 1 && visit[i] == 0) { // 간선이 존재 && 방문한적 없는 노드면 출력
                 System.out.printf("%d ", i);
                 depthFirstSearch(i);
             }
