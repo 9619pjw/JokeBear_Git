@@ -37,7 +37,7 @@ c
 #2 
 not find
 banana
-출처 : SW Expert Reference Code_ Priority_Queue
+출처 : SW Expert Reference Code_Hash
 */
 
 import java.util.Scanner;
@@ -63,8 +63,8 @@ class Hashtable{
     private int hash(String str){ 
         int hash = 5381; // 해시값
         
-        for (int i = 0; i < str.length(); i++){ // 입력받은 문자열의 길이만큼
-            int c = (int)str.charAt(i); // 입력받은 문자열의 아스키값으로
+        for (int i = 0; i < str.length(); i++){ // 입력받은 문자열의 길이만큼 반복
+            int c = (int)str.charAt(i); // 문자열 문자의 아스키값으로
             hash = ((hash << 5) + hash) + c; // 해시값 연산
         }
         if (hash < 0) hash *= -1; // 해시 값이 음수인 경우 부호 변경
