@@ -81,8 +81,8 @@ class Hashtable{
             }
             h = (h + 1) % capacity; // 다음 요소로 넘어감
         return null;    // 테이블에 해당 키가 없으면 null 반환
+        }
     }
-    
     // 해시 테이블에 키와 값 추가하는 함수
     boolean add(String key, String data){ 
         int h = hash(key); // key의 해시값 계산
